@@ -15,17 +15,24 @@ modelo_inspetor = DecisionTreeClassifier()
 modelo_inspetor.fit(X_historico, y_historico)
 
 # 5. Previsão para uma peça nova
-espessuraInput = input("Espessura: ")
-diametroInput = input("Diâmetro: ")
-tempInput = input("Temperatura de têmpera: ")
-hzInput = input("Vibração em Hz: ")
-raInput = input("Rugosidade: ")
 
-peca_nova = { "diametro_mm": diametroInput,
-             "espessura_mm": espessuraInput,
-             "temp_tempera_C": tempInput,
-             "vibracao_hz": hzInput,
-             "rugosidade_Ra": raInput }  # precisa ter todas as colunas
+peca_nova = { "diametro_mm": float,
+             "espessura_mm": float,
+             "temp_tempera_C": int,
+             "vibracao_hz": float,
+             "rugosidade_Ra": int }  # precisa ter todas as colunas
+
+def checkKeyLabel(key):
+    keywordArray = [["diametro_mm", "espessura_mm", "temp_tempera_C", "vibracao_hz", "rugosidade_Ra"]]
+    labelArray = [["Diâmetro (mm)", "Espessura (mm)", "Temperatura de Têmpera (C°)", "Vibração (Hz)", "Rugosidade (Ra)"]]
+    for index in key:
+        if labelArray.index() == index.index():
+            return labelArray[index]
+
+for key in peca_nova:
+    labelKeys = checkKeyLabel(key)
+    keys = [].append(input(f"Digite {key}: \n"))
+    peca_nova = keys
 
 previsao = modelo_inspetor.predict(peca_nova)
 
