@@ -22,18 +22,25 @@ peca_nova = { "diametro_mm": float,
              "vibracao_hz": float,
              "rugosidade_Ra": int }  # precisa ter todas as colunas
 
-def checkKeyLabel(key):
-    keywordArray = [["diametro_mm", "espessura_mm", "temp_tempera_C", "vibracao_hz", "rugosidade_Ra"]]
-    labelArray = [["Diâmetro (mm)", "Espessura (mm)", "Temperatura de Têmpera (C°)", "Vibração (Hz)", "Rugosidade (Ra)"]]
-    for index in key:
-        if labelArray.index() == index.index():
-            return labelArray[index]
-
+def returnKeyLabel(key):
+    labels = {
+        "diametro_mm": "Diâmetro (mm)",
+        "espessura_mm": "Espessura (mm)",
+        "temp_tempera_C": "Temperatura de Têmpera (C°)",
+        "vibracao_hz": "Vibração (Hz)",
+        "rugosidade_Ra": "Rugosidade (Ra)",
+    }
+    for keyName in labels:
+        if keyName == key:
+            return labels[key]
+            
 for key in peca_nova:
-    labelKeys = checkKeyLabel(key)
-    keys = [].append(input(f"Digite {key}: \n"))
-    peca_nova = keys
+    labelKeys = returnKeyLabel(key)
+    newEntries = input(f"Digite {labelKeys}: \n")
+    peca_nova[key] = newEntries
 
-previsao = modelo_inspetor.predict(peca_nova)
+entradaPeca = pd.DataFrame([peca_nova], columns=X_historico.columns)
+
+previsao = modelo_inspetor.predict(entradaPeca)
 
 print(f"Resultado da Inspeção: {'Defeituosa ❌' if previsao[0] == 1 else 'Aprovada ✅'}")
