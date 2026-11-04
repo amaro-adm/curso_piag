@@ -1,0 +1,3 @@
+import cumprimento
+
+cumprimento.positivo()
