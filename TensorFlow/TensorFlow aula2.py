@@ -1,9 +1,10 @@
-
 import io
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import tensorflow as tf
+
+
 
 # ============================================================
 # 1. CARREGAMENTO DOS DADOS REAIS (.CSV)
