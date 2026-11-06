@@ -1,0 +1,1627 @@
+<!doctype html> 
+
+<html lang="pt-BR" class="h-full">
+
+ <head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Slides - Tecnologias IA</title>
+
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+
+  <script src="/_sdk/element_sdk.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Outfit:wght@300;500;700;900&amp;display=swap" rel="stylesheet">
+
+  <style>
+
+    body { font-family: 'Outfit', sans-serif; }
+
+    .code-block { font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.6; }
+
+    .slide { display: none; }
+
+    .slide.active { display: flex; }
+
+    .comment { color: #6a9955; }
+
+    .keyword { color: #c586c0; }
+
+    .function { color: #dcdcaa; }
+
+    .string { color: #ce9178; }
+
+    .variable { color: #9cdcfe; }
+
+    .number { color: #b5cea8; }
+
+    .decorator { color: #d7ba7d; }
+
+    .progress-dot { width: 8px; height: 8px; border-radius: 50%; background: #374151; transition: all 0.3s; }
+
+    .progress-dot.active { background: #f59e0b; width: 24px; border-radius: 4px; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .slide.active { animation: fadeIn 0.4s ease; }
+
+  </style>
+
+  <style>body { box-sizing: border-box; }</style>
+
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+
+ <script src="/_sdk/telemetry_sdk.js"></script></head>
+
+ <body class="h-full bg-gray-950 text-white overflow-hidden">
+
+  <div id="app" class="h-full w-full flex flex-col"><!-- Header -->
+
+   <header class="flex items-center justify-between px-6 py-3 border-b border-gray-800 bg-gray-950/80 backdrop-blur-sm">
+
+    <div class="flex items-center gap-3">
+
+     <div class="w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center"><i data-lucide="cpu" class="w-4 h-4 text-gray-950"></i>
+
+     </div><span id="main-title" class="text-sm font-bold text-gray-300">Engenharia de IA — Aço Forte S.A.</span>
+
+    </div>
+
+    <div class="flex items-center gap-2 text-xs text-gray-500"><span id="slide-counter">1 / 11</span>
+
+    </div>
+
+   </header><!-- Slides Container -->
+
+   <main class="flex-1 overflow-y-auto"><!-- SLIDE 0: Capa -->
+
+    <div class="slide active flex-col items-center justify-center h-full p-8 text-center" data-slide="0">
+
+     <div class="max-w-3xl mx-auto">
+
+      <div class="text-amber-500 text-sm font-bold tracking-widest uppercase mb-4">
+
+       Projeto de Qualidade Industrial
+
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-black mb-6 leading-tight">Predição de Defeitos com<br><span class="text-amber-400">Inteligência Artificial</span></h1>
+
+      <p class="text-gray-400 text-lg mb-8">Aço Forte S.A. — Fábrica de Rolamentos Industriais</p>
+
+      <div class="grid grid-cols-3 gap-4 max-w-md mx-auto text-center">
+
+       <div class="bg-gray-900 rounded-lg p-3 border border-gray-800">
+
+        <div class="text-2xl font-black text-red-400">
+
+         3,2%
+
+        </div>
+
+        <div class="text-[10px] text-gray-500 mt-1">
+
+         Taxa de defeito
+
+        </div>
+
+       </div>
+
+       <div class="bg-gray-900 rounded-lg p-3 border border-gray-800">
+
+        <div class="text-2xl font-black text-red-400">
+
+         R$1,2M
+
+        </div>
+
+        <div class="text-[10px] text-gray-500 mt-1">
+
+         Multas contratuais
+
+        </div>
+
+       </div>
+
+       <div class="bg-gray-900 rounded-lg p-3 border border-gray-800">
+
+        <div class="text-2xl font-black text-amber-400">
+
+         80k
+
+        </div>
+
+        <div class="text-[10px] text-gray-500 mt-1">
+
+         Peças/dia
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+    </div><!-- SLIDE 1: Scikit-learn -->
+
+    <div class="slide flex-col h-full p-6" data-slide="1">
+
+     <div class="flex items-center gap-3 mb-4">
+
+      <div class="px-3 py-1 bg-blue-600 rounded text-xs font-bold">
+
+       ETAPA 1
+
+      </div>
+
+      <h2 class="text-xl font-black">Scikit-learn — Modelo de Classificação</h2>
+
+     </div>
+
+     <p class="text-gray-400 text-sm mb-4">Treinamento do modelo supervisionado com dados históricos de 15.000 inspeções para prever peças defeituosas.</p>
+
+     <div class="flex-1 bg-gray-900 rounded-xl border border-gray-800 p-4 overflow-y-auto">
+
+      <pre class="code-block text-gray-300"><span class="comment"># ============================================================</span>
+
+<span class="comment"># ETAPA 1: MODELO DE CLASSIFICAÇÃO COM SCIKIT-LEARN</span>
+
+<span class="comment"># Objetivo: Treinar um classificador para prever defeitos</span>
+
+<span class="comment"># em rolamentos a partir de medições dos sensores.</span>
+
+<span class="comment"># ============================================================</span>
+
+
+
+<span class="keyword">import</span> <span class="variable">pandas</span> <span class="keyword">as</span> <span class="variable">pd</span>
+
+<span class="keyword">from</span> <span class="variable">sklearn.model_selection</span> <span class="keyword">import</span> <span class="function">train_test_split</span>
+
+<span class="keyword">from</span> <span class="variable">sklearn.ensemble</span> <span class="keyword">import</span> <span class="function">RandomForestClassifier</span>
+
+<span class="keyword">from</span> <span class="variable">sklearn.metrics</span> <span class="keyword">import</span> <span class="function">classification_report</span>, <span class="function">confusion_matrix</span>
+
+<span class="keyword">from</span> <span class="variable">sklearn.preprocessing</span> <span class="keyword">import</span> <span class="function">StandardScaler</span>
+
+
+
+<span class="comment"># 1. Carregar os dados históricos de inspeção</span>
+
+<span class="variable">df</span> = <span class="variable">pd</span>.<span class="function">read_csv</span>(<span class="string">"inspecoes_rolamentos.csv"</span>)
+
+
+
+<span class="comment"># 2. Separar features (medições) do rótulo (resultado)</span>
+
+<span class="comment"># Features: diametro_mm, espessura_mm, temp_tempera_C, vibracao_hz, rugosidade_Ra</span>
+
+<span class="comment"># Target: resultado (0=aprovado, 1=defeituoso)</span>
+
+<span class="variable">X</span> = <span class="variable">df</span>[[<span class="string">"diametro_mm"</span>, <span class="string">"espessura_mm"</span>, <span class="string">"temp_tempera_C"</span>,
+
+         <span class="string">"vibracao_hz"</span>, <span class="string">"rugosidade_Ra"</span>]]
+
+<span class="variable">y</span> = <span class="variable">df</span>[<span class="string">"resultado"</span>]
+
+
+
+<span class="comment"># 3. Normalizar os dados — importante pois as escalas variam muito</span>
+
+<span class="comment"># (diâmetro ~47mm vs temperatura ~850°C)</span>
+
+<span class="variable">scaler</span> = <span class="function">StandardScaler</span>()
+
+<span class="variable">X_scaled</span> = <span class="variable">scaler</span>.<span class="function">fit_transform</span>(<span class="variable">X</span>)
+
+
+
+<span class="comment"># 4. Dividir em treino (80%) e teste (20%)</span>
+
+<span class="variable">X_train</span>, <span class="variable">X_test</span>, <span class="variable">y_train</span>, <span class="variable">y_test</span> = <span class="function">train_test_split</span>(
+
+    <span class="variable">X_scaled</span>, <span class="variable">y</span>, <span class="variable">test_size</span>=<span class="number">0.2</span>, <span class="variable">random_state</span>=<span class="number">42</span>, <span class="variable">stratify</span>=<span class="variable">y</span>
+
+)
+
+
+
+<span class="comment"># 5. Treinar Random Forest — ideal para dados tabulares industriais</span>
+
+<span class="comment"># n_estimators=200: usa 200 árvores de decisão em paralelo</span>
+
+<span class="comment"># class_weight='balanced': compensa o desbalanceamento (96.8% aprovadas vs 3.2% defeituosas)</span>
+
+<span class="variable">modelo</span> = <span class="function">RandomForestClassifier</span>(
+
+    <span class="variable">n_estimators</span>=<span class="number">200</span>,
+
+    <span class="variable">class_weight</span>=<span class="string">"balanced"</span>,
+
+    <span class="variable">random_state</span>=<span class="number">42</span>
+
+)
+
+<span class="variable">modelo</span>.<span class="function">fit</span>(<span class="variable">X_train</span>, <span class="variable">y_train</span>)
+
+
+
+<span class="comment"># 6. Avaliar o modelo no conjunto de teste</span>
+
+<span class="variable">y_pred</span> = <span class="variable">modelo</span>.<span class="function">predict</span>(<span class="variable">X_test</span>)
+
+<span class="function">print</span>(<span class="function">classification_report</span>(<span class="variable">y_test</span>, <span class="variable">y_pred</span>))
+
+<span class="function">print</span>(<span class="function">confusion_matrix</span>(<span class="variable">y_test</span>, <span class="variable">y_pred</span>))
+
+
+
+<span class="comment"># 7. Predição em tempo real — nova peça do sensor</span>
+
+<span class="variable">nova_peca</span> = [[<span class="number">47.02</span>, <span class="number">14.01</span>, <span class="number">855</span>, <span class="number">11.3</span>, <span class="number">0.42</span>]]
+
+<span class="variable">nova_peca_scaled</span> = <span class="variable">scaler</span>.<span class="function">transform</span>(<span class="variable">nova_peca</span>)
+
+<span class="variable">resultado</span> = <span class="variable">modelo</span>.<span class="function">predict</span>(<span class="variable">nova_peca_scaled</span>)
+
+<span class="comment"># resultado[0] == 0 → APROVADA | resultado[0] == 1 → DEFEITUOSA</span></pre>
+
+     </div>
+
+     <div class="mt-3 flex gap-2 flex-wrap"><span class="px-2 py-1 bg-blue-900/50 border border-blue-700 rounded text-[10px] text-blue-300">Classificação Supervisionada</span> <span class="px-2 py-1 bg-blue-900/50 border border-blue-700 rounded text-[10px] text-blue-300">Random Forest</span> <span class="px-2 py-1 bg-blue-900/50 border border-blue-700 rounded text-[10px] text-blue-300">Dados Tabulares</span>
+
+     </div>
+
+    </div><!-- SLIDE 2: TensorFlow -->
+
+    <div class="slide flex-col h-full p-6" data-slide="2">
+
+     <div class="flex items-center gap-3 mb-4">
+
+      <div class="px-3 py-1 bg-orange-600 rounded text-xs font-bold">
+
+       ETAPA 2
+
+      </div>
+
+      <h2 class="text-xl font-black">TensorFlow — Rede Neural Profunda</h2>
+
+     </div>
+
+     <p class="text-gray-400 text-sm mb-4">Construção de uma rede neural densa de baixo nível com TensorFlow puro para capturar padrões não-lineares complexos nos dados de inspeção.</p>
+
+     <div class="flex-1 bg-gray-900 rounded-xl border border-gray-800 p-4 overflow-y-auto">
+
+      <pre class="code-block text-gray-300"><span class="comment"># ============================================================</span>
+
+<span class="comment"># ETAPA 2: REDE NEURAL COM TENSORFLOW (BAIXO NÍVEL)</span>
+
+<span class="comment"># Objetivo: Usar Deep Learning para capturar relações</span>
+
+<span class="comment"># não-lineares entre as medições dos sensores.</span>
+
+<span class="comment"># ============================================================</span>
+
+
+
+<span class="keyword">import</span> <span class="variable">tensorflow</span> <span class="keyword">as</span> <span class="variable">tf</span>
+
+<span class="keyword">import</span> <span class="variable">numpy</span> <span class="keyword">as</span> <span class="variable">np</span>
+
+
+
+<span class="comment"># 1. Converter dados para tensores TensorFlow</span>
+
+<span class="comment"># TensorFlow opera com tensores (arrays multidimensionais otimizados para GPU)</span>
+
+<span class="variable">X_train_tf</span> = <span class="variable">tf</span>.<span class="function">constant</span>(<span class="variable">X_train</span>, <span class="variable">dtype</span>=<span class="variable">tf</span>.<span class="variable">float32</span>)
+
+<span class="variable">y_train_tf</span> = <span class="variable">tf</span>.<span class="function">constant</span>(<span class="variable">y_train</span>.<span class="variable">values</span>, <span class="variable">dtype</span>=<span class="variable">tf</span>.<span class="variable">float32</span>)
+
+
+
+<span class="comment"># 2. Definir variáveis treináveis (pesos e bias) manualmente</span>
+
+<span class="comment"># Camada 1: 5 inputs → 64 neurônios</span>
+
+<span class="variable">W1</span> = <span class="variable">tf</span>.<span class="variable">Variable</span>(<span class="variable">tf</span>.<span class="variable">random</span>.<span class="function">normal</span>([<span class="number">5</span>, <span class="number">64</span>], <span class="variable">stddev</span>=<span class="number">0.1</span>))
+
+<span class="variable">b1</span> = <span class="variable">tf</span>.<span class="variable">Variable</span>(<span class="variable">tf</span>.<span class="function">zeros</span>([<span class="number">64</span>]))
+
+
+
+<span class="comment"># Camada 2: 64 → 32 neurônios</span>
+
+<span class="variable">W2</span> = <span class="variable">tf</span>.<span class="variable">Variable</span>(<span class="variable">tf</span>.<span class="variable">random</span>.<span class="function">normal</span>([<span class="number">64</span>, <span class="number">32</span>], <span class="variable">stddev</span>=<span class="number">0.1</span>))
+
+<span class="variable">b2</span> = <span class="variable">tf</span>.<span class="variable">Variable</span>(<span class="variable">tf</span>.<span class="function">zeros</span>([<span class="number">32</span>]))
+
+
+
+<span class="comment"># Camada de saída: 32 → 1 (probabilidade de defeito)</span>
+
+<span class="variable">W_out</span> = <span class="variable">tf</span>.<span class="variable">Variable</span>(<span class="variable">tf</span>.<span class="variable">random</span>.<span class="function">normal</span>([<span class="number">32</span>, <span class="number">1</span>], <span class="variable">stddev</span>=<span class="number">0.1</span>))
+
+<span class="variable">b_out</span> = <span class="variable">tf</span>.<span class="variable">Variable</span>(<span class="variable">tf</span>.<span class="function">zeros</span>([<span class="number">1</span>]))
+
+
+
+<span class="comment"># 3. Função de forward pass (propagação direta)</span>
+
+<span class="keyword">def</span> <span class="function">forward</span>(<span class="variable">X</span>):
+
+    <span class="variable">z1</span> = <span class="variable">tf</span>.<span class="variable">nn</span>.<span class="function">relu</span>(<span class="variable">tf</span>.<span class="function">matmul</span>(<span class="variable">X</span>, <span class="variable">W1</span>) + <span class="variable">b1</span>)  <span class="comment"># Ativação ReLU</span>
+
+    <span class="variable">z2</span> = <span class="variable">tf</span>.<span class="variable">nn</span>.<span class="function">relu</span>(<span class="variable">tf</span>.<span class="function">matmul</span>(<span class="variable">z1</span>, <span class="variable">W2</span>) + <span class="variable">b2</span>)
+
+    <span class="variable">output</span> = <span class="variable">tf</span>.<span class="variable">nn</span>.<span class="function">sigmoid</span>(<span class="variable">tf</span>.<span class="function">matmul</span>(<span class="variable">z2</span>, <span class="variable">W_out</span>) + <span class="variable">b_out</span>)  <span class="comment"># Sigmoid → [0,1]</span>
+
+    <span class="keyword">return</span> <span class="variable">output</span>
+
+
+
+<span class="comment"># 4. Função de perda: Binary Cross-Entropy</span>
+
+<span class="comment"># Penaliza previsões erradas proporcionalmente à confiança do modelo</span>
+
+<span class="keyword">def</span> <span class="function">compute_loss</span>(<span class="variable">y_true</span>, <span class="variable">y_pred</span>):
+
+    <span class="keyword">return</span> <span class="variable">tf</span>.<span class="function">reduce_mean</span>(
+
+        <span class="variable">tf</span>.<span class="variable">nn</span>.<span class="function">sigmoid_cross_entropy_with_logits</span>(
+
+            <span class="variable">labels</span>=<span class="variable">y_true</span>, <span class="variable">logits</span>=<span class="variable">y_pred</span>
+
+        )
+
+    )
+
+
+
+<span class="comment"># 5. Otimizador Adam — ajusta pesos via gradiente descendente adaptativo</span>
+
+<span class="variable">optimizer</span> = <span class="variable">tf</span>.<span class="variable">optimizers</span>.<span class="function">Adam</span>(<span class="variable">learning_rate</span>=<span class="number">0.001</span>)
+
+
+
+<span class="comment"># 6. Loop de treinamento manual com GradientTape</span>
+
+<span class="keyword">for</span> <span class="variable">epoch</span> <span class="keyword">in</span> <span class="function">range</span>(<span class="number">100</span>):
+
+    <span class="keyword">with</span> <span class="variable">tf</span>.<span class="function">GradientTape</span>() <span class="keyword">as</span> <span class="variable">tape</span>:
+
+        <span class="variable">predictions</span> = <span class="function">forward</span>(<span class="variable">X_train_tf</span>)
+
+        <span class="variable">loss</span> = <span class="function">compute_loss</span>(<span class="variable">y_train_tf</span>, <span class="variable">predictions</span>)
+
+    <span class="comment"># Calcular gradientes e atualizar pesos</span>
+
+    <span class="variable">grads</span> = <span class="variable">tape</span>.<span class="function">gradient</span>(<span class="variable">loss</span>, [<span class="variable">W1</span>,<span class="variable">b1</span>,<span class="variable">W2</span>,<span class="variable">b2</span>,<span class="variable">W_out</span>,<span class="variable">b_out</span>])
+
+    <span class="variable">optimizer</span>.<span class="function">apply_gradients</span>(<span class="function">zip</span>(<span class="variable">grads</span>, [<span class="variable">W1</span>,<span class="variable">b1</span>,<span class="variable">W2</span>,<span class="variable">b2</span>,<span class="variable">W_out</span>,<span class="variable">b_out</span>]))</pre>
+
+     </div>
+
+     <div class="mt-3 flex gap-2 flex-wrap"><span class="px-2 py-1 bg-orange-900/50 border border-orange-700 rounded text-[10px] text-orange-300">GradientTape</span> <span class="px-2 py-1 bg-orange-900/50 border border-orange-700 rounded text-[10px] text-orange-300">GPU/TPU</span> <span class="px-2 py-1 bg-orange-900/50 border border-orange-700 rounded text-[10px] text-orange-300">Baixo Nível</span>
+
+     </div>
+
+    </div><!-- SLIDE 3: Keras -->
+
+    <div class="slide flex-col h-full p-6" data-slide="3">
+
+     <div class="flex items-center gap-3 mb-4">
+
+      <div class="px-3 py-1 bg-red-600 rounded text-xs font-bold">
+
+       ETAPA 3
+
+      </div>
+
+      <h2 class="text-xl font-black">Keras — API de Alto Nível</h2>
+
+     </div>
+
+     <p class="text-gray-400 text-sm mb-4">Mesmo modelo da Etapa 2, mas com código 5x mais simples usando Keras sobre TensorFlow. Ideal para prototipagem rápida.</p>
+
+     <div class="flex-1 bg-gray-900 rounded-xl border border-gray-800 p-4 overflow-y-auto">
+
+      <pre class="code-block text-gray-300"><span class="comment"># ============================================================</span>
+
+<span class="comment"># ETAPA 3: MESMA REDE NEURAL COM KERAS (ALTO NÍVEL)</span>
+
+<span class="comment"># Objetivo: Simplificar a construção do modelo Deep Learning.</span>
+
+<span class="comment"># Keras roda "por cima" do TensorFlow, abstraindo a complexidade.</span>
+
+<span class="comment"># ============================================================</span>
+
+
+
+<span class="keyword">from</span> <span class="variable">tensorflow</span> <span class="keyword">import</span> <span class="variable">keras</span>
+
+<span class="keyword">from</span> <span class="variable">tensorflow.keras</span> <span class="keyword">import</span> <span class="variable">layers</span>
+
+
+
+<span class="comment"># 1. Construir modelo sequencial (camadas empilhadas)</span>
+
+<span class="variable">modelo_keras</span> = <span class="variable">keras</span>.<span class="function">Sequential</span>([
+
+    <span class="comment"># Camada de entrada: recebe 5 features dos sensores</span>
+
+    <span class="variable">layers</span>.<span class="function">Input</span>(<span class="variable">shape</span>=(<span class="number">5</span>,)),
+
+
+
+    <span class="comment"># Camada densa 1: 64 neurônios com ReLU</span>
+
+    <span class="comment"># ReLU: se valor &gt; 0, mantém; se &lt; 0, zera (introduz não-linearidade)</span>
+
+    <span class="variable">layers</span>.<span class="function">Dense</span>(<span class="number">64</span>, <span class="variable">activation</span>=<span class="string">"relu"</span>),
+
+    <span class="variable">layers</span>.<span class="function">Dropout</span>(<span class="number">0.3</span>),  <span class="comment"># Desliga 30% dos neurônios aleatoriamente (evita overfitting)</span>
+
+
+
+    <span class="comment"># Camada densa 2: 32 neurônios</span>
+
+    <span class="variable">layers</span>.<span class="function">Dense</span>(<span class="number">32</span>, <span class="variable">activation</span>=<span class="string">"relu"</span>),
+
+    <span class="variable">layers</span>.<span class="function">Dropout</span>(<span class="number">0.2</span>),
+
+
+
+    <span class="comment"># Camada de saída: 1 neurônio com Sigmoid → probabilidade [0, 1]</span>
+
+    <span class="variable">layers</span>.<span class="function">Dense</span>(<span class="number">1</span>, <span class="variable">activation</span>=<span class="string">"sigmoid"</span>)
+
+])
+
+
+
+<span class="comment"># 2. Compilar: definir perda, otimizador e métricas</span>
+
+<span class="variable">modelo_keras</span>.<span class="function">compile</span>(
+
+    <span class="variable">optimizer</span>=<span class="string">"adam"</span>,
+
+    <span class="variable">loss</span>=<span class="string">"binary_crossentropy"</span>,     <span class="comment"># Perda para classificação binária</span>
+
+    <span class="variable">metrics</span>=[<span class="string">"accuracy"</span>, <span class="string">"recall"</span>]  <span class="comment"># Recall é crucial: não podemos perder defeitos!</span>
+
+)
+
+
+
+<span class="comment"># 3. Treinar com early stopping (para quando não melhora mais)</span>
+
+<span class="variable">early_stop</span> = <span class="variable">keras</span>.<span class="variable">callbacks</span>.<span class="function">EarlyStopping</span>(
+
+    <span class="variable">patience</span>=<span class="number">10</span>, <span class="variable">restore_best_weights</span>=<span class="number">True</span>
+
+)
+
+
+
+<span class="variable">historico</span> = <span class="variable">modelo_keras</span>.<span class="function">fit</span>(
+
+    <span class="variable">X_train</span>, <span class="variable">y_train</span>,
+
+    <span class="variable">epochs</span>=<span class="number">100</span>,
+
+    <span class="variable">batch_size</span>=<span class="number">32</span>,
+
+    <span class="variable">validation_split</span>=<span class="number">0.15</span>,     <span class="comment"># 15% para validação interna</span>
+
+    <span class="variable">callbacks</span>=[<span class="variable">early_stop</span>],
+
+    <span class="variable">class_weight</span>={<span class="number">0</span>: <span class="number">1.0</span>, <span class="number">1</span>: <span class="number">30.0</span>}  <span class="comment"># Peso 30x para defeituosas (desbalanceamento)</span>
+
+)
+
+
+
+<span class="comment"># 4. Salvar modelo treinado para deploy na linha de produção</span>
+
+<span class="variable">modelo_keras</span>.<span class="function">save</span>(<span class="string">"modelo_rolamentos_v1.h5"</span>)</pre>
+
+     </div>
+
+     <div class="mt-3 flex gap-2 flex-wrap"><span class="px-2 py-1 bg-red-900/50 border border-red-700 rounded text-[10px] text-red-300">Alto Nível</span> <span class="px-2 py-1 bg-red-900/50 border border-red-700 rounded text-[10px] text-red-300">Prototipagem Rápida</span> <span class="px-2 py-1 bg-red-900/50 border border-red-700 rounded text-[10px] text-red-300">Early Stopping</span>
+
+     </div>
+
+    </div><!-- SLIDE 4: OpenCV -->
+
+    <div class="slide flex-col h-full p-6" data-slide="4">
+
+     <div class="flex items-center gap-3 mb-4">
+
+      <div class="px-3 py-1 bg-green-600 rounded text-xs font-bold">
+
+       ETAPA 4
+
+      </div>
+
+      <h2 class="text-xl font-black">OpenCV — Inspeção Visual</h2>
+
+     </div>
+
+     <p class="text-gray-400 text-sm mb-4">Complemento visual: câmera na linha captura imagens da superfície do rolamento. OpenCV detecta trincas, arranhões e imperfeições que sensores numéricos não captam.</p>
+
+     <div class="flex-1 bg-gray-900 rounded-xl border border-gray-800 p-4 overflow-y-auto">
+
+      <pre class="code-block text-gray-300"><span class="comment"># ============================================================</span>
+
+<span class="comment"># ETAPA 4: INSPEÇÃO VISUAL COM OPENCV</span>
+
+<span class="comment"># Objetivo: Detectar defeitos visuais (trincas, arranhões)</span>
+
+<span class="comment"># na superfície dos rolamentos usando processamento de imagem.</span>
+
+<span class="comment"># ============================================================</span>
+
+
+
+<span class="keyword">import</span> <span class="variable">cv2</span>
+
+<span class="keyword">import</span> <span class="variable">numpy</span> <span class="keyword">as</span> <span class="variable">np</span>
+
+
+
+<span class="comment"># 1. Capturar frame da câmera industrial na linha de produção</span>
+
+<span class="variable">camera</span> = <span class="variable">cv2</span>.<span class="function">VideoCapture</span>(<span class="number">0</span>)  <span class="comment"># Câmera ID 0 na estação de inspeção</span>
+
+<span class="variable">ret</span>, <span class="variable">frame</span> = <span class="variable">camera</span>.<span class="function">read</span>()
+
+
+
+<span class="comment"># 2. Pré-processamento: converter para escala de cinza</span>
+
+<span class="comment"># Imagens em cinza são mais rápidas de processar e eliminam ruído de cor</span>
+
+<span class="variable">cinza</span> = <span class="variable">cv2</span>.<span class="function">cvtColor</span>(<span class="variable">frame</span>, <span class="variable">cv2</span>.<span class="variable">COLOR_BGR2GRAY</span>)
+
+
+
+<span class="comment"># 3. Aplicar filtro Gaussiano para suavizar ruído do sensor</span>
+
+<span class="variable">suavizada</span> = <span class="variable">cv2</span>.<span class="function">GaussianBlur</span>(<span class="variable">cinza</span>, (<span class="number">5</span>, <span class="number">5</span>), <span class="number">0</span>)
+
+
+
+<span class="comment"># 4. Detecção de bordas com Canny — encontra contornos de defeitos</span>
+
+<span class="comment"># Limiar baixo (50) e alto (150): sensibilidade calibrada para trincas</span>
+
+<span class="variable">bordas</span> = <span class="variable">cv2</span>.<span class="function">Canny</span>(<span class="variable">suavizada</span>, <span class="number">50</span>, <span class="number">150</span>)
+
+
+
+<span class="comment"># 5. Encontrar contornos (possíveis defeitos)</span>
+
+<span class="variable">contornos</span>, _ = <span class="variable">cv2</span>.<span class="function">findContours</span>(
+
+    <span class="variable">bordas</span>, <span class="variable">cv2</span>.<span class="variable">RETR_EXTERNAL</span>, <span class="variable">cv2</span>.<span class="variable">CHAIN_APPROX_SIMPLE</span>
+
+)
+
+
+
+<span class="comment"># 6. Filtrar contornos por área — eliminar ruído (contornos minúsculos)</span>
+
+<span class="variable">defeitos_detectados</span> = []
+
+<span class="keyword">for</span> <span class="variable">contorno</span> <span class="keyword">in</span> <span class="variable">contornos</span>:
+
+    <span class="variable">area</span> = <span class="variable">cv2</span>.<span class="function">contourArea</span>(<span class="variable">contorno</span>)
+
+    <span class="keyword">if</span> <span class="variable">area</span> &gt; <span class="number">100</span>:  <span class="comment"># Área mínima: 100 pixels² (calibrado empiricamente)</span>
+
+        <span class="variable">defeitos_detectados</span>.<span class="function">append</span>(<span class="variable">contorno</span>)
+
+        <span class="comment"># Desenhar retângulo vermelho ao redor do defeito</span>
+
+        <span class="variable">x</span>, <span class="variable">y</span>, <span class="variable">w</span>, <span class="variable">h</span> = <span class="variable">cv2</span>.<span class="function">boundingRect</span>(<span class="variable">contorno</span>)
+
+        <span class="variable">cv2</span>.<span class="function">rectangle</span>(<span class="variable">frame</span>, (<span class="variable">x</span>,<span class="variable">y</span>), (<span class="variable">x</span>+<span class="variable">w</span>,<span class="variable">y</span>+<span class="variable">h</span>), (<span class="number">0</span>,<span class="number">0</span>,<span class="number">255</span>), <span class="number">2</span>)
+
+
+
+<span class="comment"># 7. Decisão: se detectou defeitos visuais → rejeitar peça</span>
+
+<span class="variable">tem_defeito_visual</span> = <span class="function">len</span>(<span class="variable">defeitos_detectados</span>) &gt; <span class="number">0</span>
+
+<span class="function">print</span>(<span class="string">f"Defeitos visuais encontrados: </span>{<span class="function">len</span>(<span class="variable">defeitos_detectados</span>)}<span class="string">"</span>)
+
+
+
+<span class="variable">camera</span>.<span class="function">release</span>()</pre>
+
+     </div>
+
+     <div class="mt-3 flex gap-2 flex-wrap"><span class="px-2 py-1 bg-green-900/50 border border-green-700 rounded text-[10px] text-green-300">Detecção de Bordas</span> <span class="px-2 py-1 bg-green-900/50 border border-green-700 rounded text-[10px] text-green-300">Contornos</span> <span class="px-2 py-1 bg-green-900/50 border border-green-700 rounded text-[10px] text-green-300">Tempo Real</span>
+
+     </div>
+
+    </div><!-- SLIDE 5: YOLO -->
+
+    <div class="slide flex-col h-full p-6" data-slide="5">
+
+     <div class="flex items-center gap-3 mb-4">
+
+      <div class="px-3 py-1 bg-purple-600 rounded text-xs font-bold">
+
+       ETAPA 5
+
+      </div>
+
+      <h2 class="text-xl font-black">YOLO — Detecção de Defeitos em Tempo Real</h2>
+
+     </div>
+
+     <p class="text-gray-400 text-sm mb-4">Modelo de Deep Learning treinado com imagens rotuladas de defeitos (trincas, corrosão, deformação). Classifica e localiza defeitos em milissegundos.</p>
+
+     <div class="flex-1 bg-gray-900 rounded-xl border border-gray-800 p-4 overflow-y-auto">
+
+      <pre class="code-block text-gray-300"><span class="comment"># ============================================================</span>
+
+<span class="comment"># ETAPA 5: DETECÇÃO DE DEFEITOS COM YOLO v8</span>
+
+<span class="comment"># Objetivo: Identificar E classificar tipos de defeito em</span>
+
+<span class="comment"># imagens do rolamento com localização precisa (bounding box).</span>
+
+<span class="comment"># ============================================================</span>
+
+
+
+<span class="keyword">from</span> <span class="variable">ultralytics</span> <span class="keyword">import</span> <span class="function">YOLO</span>
+
+<span class="keyword">import</span> <span class="variable">cv2</span>
+
+
+
+<span class="comment"># 1. Carregar modelo YOLO pré-treinado e fine-tuned nos nossos dados</span>
+
+<span class="comment"># O modelo foi treinado com 5.000 imagens de rolamentos rotuladas:</span>
+
+<span class="comment"># Classes: ["ok", "trinca", "corrosao", "deformacao", "arranhao"]</span>
+
+<span class="variable">modelo_yolo</span> = <span class="function">YOLO</span>(<span class="string">"modelo_defeitos_rolamento_v1.pt"</span>)
+
+
+
+<span class="comment"># 2. Capturar imagem da câmera na estação de inspeção</span>
+
+<span class="variable">imagem</span> = <span class="variable">cv2</span>.<span class="function">imread</span>(<span class="string">"peca_atual.jpg"</span>)
+
+
+
+<span class="comment"># 3. Inferência: YOLO processa a imagem inteira de uma só vez</span>
+
+<span class="comment"># Diferente de métodos sliding-window, YOLO é extremamente rápido</span>
+
+<span class="comment"># (~5ms por imagem em GPU NVIDIA T4)</span>
+
+<span class="variable">resultados</span> = <span class="variable">modelo_yolo</span>.<span class="function">predict</span>(
+
+    <span class="variable">imagem</span>,
+
+    <span class="variable">conf</span>=<span class="number">0.7</span>,       <span class="comment"># Confiança mínima: 70% para evitar falsos positivos</span>
+
+    <span class="variable">imgsz</span>=<span class="number">640</span>,      <span class="comment"># Resolução de entrada otimizada</span>
+
+    <span class="variable">device</span>=<span class="string">"cuda"</span>   <span class="comment"># Usar GPU para inferência</span>
+
+)
+
+
+
+<span class="comment"># 4. Processar resultados — cada detecção tem:</span>
+
+<span class="comment">#    - Bounding box (x1, y1, x2, y2)</span>
+
+<span class="comment">#    - Classe do defeito</span>
+
+<span class="comment">#    - Confiança (0 a 1)</span>
+
+<span class="keyword">for</span> <span class="variable">resultado</span> <span class="keyword">in</span> <span class="variable">resultados</span>[<span class="number">0</span>].<span class="variable">boxes</span>:
+
+    <span class="variable">classe</span> = <span class="variable">resultado</span>.<span class="variable">cls</span>.<span class="function">item</span>()        <span class="comment"># ID da classe detectada</span>
+
+    <span class="variable">confianca</span> = <span class="variable">resultado</span>.<span class="variable">conf</span>.<span class="function">item</span>()    <span class="comment"># Probabilidade</span>
+
+    <span class="variable">bbox</span> = <span class="variable">resultado</span>.<span class="variable">xyxy</span>[<span class="number">0</span>].<span class="function">tolist</span>()    <span class="comment"># Coordenadas do defeito</span>
+
+
+
+    <span class="variable">nome_classe</span> = [<span class="string">"ok"</span>,<span class="string">"trinca"</span>,<span class="string">"corrosao"</span>,<span class="string">"deformacao"</span>,<span class="string">"arranhao"</span>][<span class="function">int</span>(<span class="variable">classe</span>)]
+
+    <span class="function">print</span>(<span class="string">f"Defeito: </span>{<span class="variable">nome_classe</span>}<span class="string"> | Confiança: </span>{<span class="variable">confianca</span>:<span class="number">.1%</span>}<span class="string">"</span>)
+
+
+
+<span class="comment"># 5. Decisão automática na linha de produção</span>
+
+<span class="variable">tem_defeito</span> = <span class="keyword">any</span>(<span class="variable">r</span>.<span class="variable">cls</span>.<span class="function">item</span>() != <span class="number">0</span> <span class="keyword">for</span> <span class="variable">r</span> <span class="keyword">in</span> <span class="variable">resultados</span>[<span class="number">0</span>].<span class="variable">boxes</span>)
+
+<span class="comment"># Se tem_defeito → ativar braço robótico para separar peça</span></pre>
+
+     </div>
+
+     <div class="mt-3 flex gap-2 flex-wrap"><span class="px-2 py-1 bg-purple-900/50 border border-purple-700 rounded text-[10px] text-purple-300">~5ms/imagem</span> <span class="px-2 py-1 bg-purple-900/50 border border-purple-700 rounded text-[10px] text-purple-300">Bounding Boxes</span> <span class="px-2 py-1 bg-purple-900/50 border border-purple-700 rounded text-[10px] text-purple-300">Multi-classe</span>
+
+     </div>
+
+    </div><!-- SLIDE 6: NLTK -->
+
+    <div class="slide flex-col h-full p-6" data-slide="6">
+
+     <div class="flex items-center gap-3 mb-4">
+
+      <div class="px-3 py-1 bg-teal-600 rounded text-xs font-bold">
+
+       ETAPA 6
+
+      </div>
+
+      <h2 class="text-xl font-black">NLTK — Análise de Relatórios de Defeito</h2>
+
+     </div>
+
+     <p class="text-gray-400 text-sm mb-4">Inspetores escrevem relatórios manuais quando encontram defeitos. O NLTK extrai padrões textuais e classifica a gravidade automaticamente.</p>
+
+     <div class="flex-1 bg-gray-900 rounded-xl border border-gray-800 p-4 overflow-y-auto">
+
+      <pre class="code-block text-gray-300"><span class="comment"># ============================================================</span>
+
+<span class="comment"># ETAPA 6: ANÁLISE DE RELATÓRIOS COM NLTK</span>
+
+<span class="comment"># Objetivo: Processar textos escritos por inspetores para</span>
+
+<span class="comment"># extrair padrões e classificar gravidade dos defeitos.</span>
+
+<span class="comment"># ============================================================</span>
+
+
+
+<span class="keyword">import</span> <span class="variable">nltk</span>
+
+<span class="keyword">from</span> <span class="variable">nltk.tokenize</span> <span class="keyword">import</span> <span class="function">word_tokenize</span>
+
+<span class="keyword">from</span> <span class="variable">nltk.corpus</span> <span class="keyword">import</span> <span class="variable">stopwords</span>
+
+<span class="keyword">from</span> <span class="variable">nltk.sentiment</span> <span class="keyword">import</span> <span class="function">SentimentIntensityAnalyzer</span>
+
+<span class="keyword">from</span> <span class="variable">collections</span> <span class="keyword">import</span> <span class="function">Counter</span>
+
+
+
+<span class="comment"># 1. Relatório de exemplo escrito pelo inspetor</span>
+
+<span class="variable">relatorio</span> = <span class="string">"""Peça lote 4523 apresentou trinca severa na pista interna.
+
+Vibração muito acima do normal durante teste rotativo.
+
+Temperatura de têmpera possivelmente fora do padrão.
+
+Recomendo descarte imediato e revisão do forno 3."""</span>
+
+
+
+<span class="comment"># 2. Tokenização: quebrar texto em palavras individuais</span>
+
+<span class="variable">tokens</span> = <span class="function">word_tokenize</span>(<span class="variable">relatorio</span>, <span class="variable">language</span>=<span class="string">"portuguese"</span>)
+
+<span class="comment"># Resultado: ['Peça', 'lote', '4523', 'apresentou', 'trinca', ...]</span>
+
+
+
+<span class="comment"># 3. Remover stopwords (palavras sem significado: "de", "na", "do")</span>
+
+<span class="variable">stop_pt</span> = <span class="function">set</span>(<span class="variable">stopwords</span>.<span class="function">words</span>(<span class="string">"portuguese"</span>))
+
+<span class="variable">palavras_relevantes</span> = [<span class="variable">t</span>.<span class="function">lower</span>() <span class="keyword">for</span> <span class="variable">t</span> <span class="keyword">in</span> <span class="variable">tokens</span>
+
+                       <span class="keyword">if</span> <span class="variable">t</span>.<span class="function">isalpha</span>() <span class="keyword">and</span> <span class="variable">t</span>.<span class="function">lower</span>() <span class="keyword">not in</span> <span class="variable">stop_pt</span>]
+
+
+
+<span class="comment"># 4. Frequência de termos — quais palavras aparecem mais?</span>
+
+<span class="variable">frequencia</span> = <span class="function">Counter</span>(<span class="variable">palavras_relevantes</span>)
+
+<span class="function">print</span>(<span class="string">"Termos mais frequentes:"</span>, <span class="variable">frequencia</span>.<span class="function">most_common</span>(<span class="number">5</span>))
+
+
+
+<span class="comment"># 5. Detecção de palavras-chave de gravidade</span>
+
+<span class="variable">palavras_criticas</span> = {<span class="string">"severa"</span>, <span class="string">"descarte"</span>, <span class="string">"imediato"</span>, <span class="string">"grave"</span>, <span class="string">"urgente"</span>}
+
+<span class="variable">gravidade</span> = <span class="function">len</span>(<span class="variable">palavras_criticas</span>.<span class="function">intersection</span>(<span class="function">set</span>(<span class="variable">palavras_relevantes</span>)))
+
+<span class="function">print</span>(<span class="string">f"Nível de gravidade: </span>{<span class="variable">gravidade</span>}<span class="string">/5 palavras críticas detectadas"</span>)
+
+
+
+<span class="comment"># 6. POS Tagging: identificar classes gramaticais</span>
+
+<span class="comment"># Útil para extrair entidades como nomes de equipamentos</span>
+
+<span class="variable">tagged</span> = <span class="variable">nltk</span>.<span class="function">pos_tag</span>(<span class="variable">tokens</span>)
+
+<span class="comment"># Resultado: [('trinca', 'NN'), ('severa', 'JJ'), ...]</span></pre>
+
+     </div>
+
+     <div class="mt-3 flex gap-2 flex-wrap"><span class="px-2 py-1 bg-teal-900/50 border border-teal-700 rounded text-[10px] text-teal-300">Tokenização</span> <span class="px-2 py-1 bg-teal-900/50 border border-teal-700 rounded text-[10px] text-teal-300">POS Tagging</span> <span class="px-2 py-1 bg-teal-900/50 border border-teal-700 rounded text-[10px] text-teal-300">Análise Textual</span>
+
+     </div>
+
+    </div><!-- SLIDE 7: spaCy -->
+
+    <div class="slide flex-col h-full p-6" data-slide="7">
+
+     <div class="flex items-center gap-3 mb-4">
+
+      <div class="px-3 py-1 bg-cyan-600 rounded text-xs font-bold">
+
+       ETAPA 7
+
+      </div>
+
+      <h2 class="text-xl font-black">spaCy — Extração de Entidades em Produção</h2>
+
+     </div>
+
+     <p class="text-gray-400 text-sm mb-4">Versão industrial do processamento de texto: spaCy extrai automaticamente lotes, equipamentos e tipos de defeito de milhares de relatórios por dia.</p>
+
+     <div class="flex-1 bg-gray-900 rounded-xl border border-gray-800 p-4 overflow-y-auto">
+
+      <pre class="code-block text-gray-300"><span class="comment"># ============================================================</span>
+
+<span class="comment"># ETAPA 7: EXTRAÇÃO DE ENTIDADES COM spaCy (PRODUÇÃO)</span>
+
+<span class="comment"># Objetivo: Processar milhares de relatórios em larga escala,</span>
+
+<span class="comment"># extraindo entidades nomeadas (lotes, equipamentos, defeitos).</span>
+
+<span class="comment"># ============================================================</span>
+
+
+
+<span class="keyword">import</span> <span class="variable">spacy</span>
+
+<span class="keyword">from</span> <span class="variable">spacy.matcher</span> <span class="keyword">import</span> <span class="function">Matcher</span>
+
+
+
+<span class="comment"># 1. Carregar modelo pré-treinado em português (inclui NER + parsing)</span>
+
+<span class="variable">nlp</span> = <span class="variable">spacy</span>.<span class="function">load</span>(<span class="string">"pt_core_news_lg"</span>)  <span class="comment"># Modelo grande: melhor precisão</span>
+
+
+
+<span class="comment"># 2. Criar matcher customizado para termos da fábrica</span>
+
+<span class="variable">matcher</span> = <span class="function">Matcher</span>(<span class="variable">nlp</span>.<span class="variable">vocab</span>)
+
+
+
+<span class="comment"># Padrão: detectar referências a equipamentos (ex: "forno 3", "prensa 7")</span>
+
+<span class="variable">padrao_equipamento</span> = [{<span class="string">"LOWER"</span>: {<span class="string">"IN"</span>: [<span class="string">"forno"</span>, <span class="string">"prensa"</span>, <span class="string">"torno"</span>]}},
+
+                      {<span class="string">"IS_DIGIT"</span>: <span class="number">True</span>}]
+
+<span class="variable">matcher</span>.<span class="function">add</span>(<span class="string">"EQUIPAMENTO"</span>, [<span class="variable">padrao_equipamento</span>])
+
+
+
+<span class="comment"># Padrão: detectar códigos de lote (ex: "lote 4523")</span>
+
+<span class="variable">padrao_lote</span> = [{<span class="string">"LOWER"</span>: <span class="string">"lote"</span>}, {<span class="string">"IS_DIGIT"</span>: <span class="number">True</span>}]
+
+<span class="variable">matcher</span>.<span class="function">add</span>(<span class="string">"LOTE"</span>, [<span class="variable">padrao_lote</span>])
+
+
+
+<span class="comment"># 3. Processar relatório (pipeline completo: tokenize → parse → NER)</span>
+
+<span class="variable">relatorio</span> = <span class="string">"""Peça lote 4523 apresentou trinca severa na pista interna.
+
+Temperatura do forno 3 estava 40 graus acima do limite."""</span>
+
+
+
+<span class="variable">doc</span> = <span class="variable">nlp</span>(<span class="variable">relatorio</span>)
+
+
+
+<span class="comment"># 4. Extrair entidades nomeadas automaticamente</span>
+
+<span class="function">print</span>(<span class="string">"=== Entidades Detectadas ==="</span>)
+
+<span class="keyword">for</span> <span class="variable">ent</span> <span class="keyword">in</span> <span class="variable">doc</span>.<span class="variable">ents</span>:
+
+    <span class="function">print</span>(<span class="string">f"  {</span><span class="variable">ent</span>.<span class="variable">text</span>} → {<span class="variable">ent</span>.<span class="variable">label_</span>}<span class="string">"</span>)
+
+
+
+<span class="comment"># 5. Aplicar matcher customizado</span>
+
+<span class="variable">matches</span> = <span class="variable">matcher</span>(<span class="variable">doc</span>)
+
+<span class="keyword">for</span> <span class="variable">match_id</span>, <span class="variable">start</span>, <span class="variable">end</span> <span class="keyword">in</span> <span class="variable">matches</span>:
+
+    <span class="variable">nome_regra</span> = <span class="variable">nlp</span>.<span class="variable">vocab</span>.<span class="variable">strings</span>[<span class="variable">match_id</span>]
+
+    <span class="variable">span</span> = <span class="variable">doc</span>[<span class="variable">start</span>:<span class="variable">end</span>]
+
+    <span class="function">print</span>(<span class="string">f"  [{</span><span class="variable">nome_regra</span>}] → {<span class="variable">span</span>.<span class="variable">text</span>}<span class="string">"</span>)
+
+    <span class="comment"># Saída: [LOTE] → lote 4523  |  [EQUIPAMENTO] → forno 3</span>
+
+
+
+<span class="comment"># 6. Análise de dependência sintática (quem fez o quê?)</span>
+
+<span class="keyword">for</span> <span class="variable">token</span> <span class="keyword">in</span> <span class="variable">doc</span>:
+
+    <span class="keyword">if</span> <span class="variable">token</span>.<span class="variable">dep_</span> == <span class="string">"nsubj"</span>:  <span class="comment"># Sujeito da frase</span>
+
+        <span class="function">print</span>(<span class="string">f"  Sujeito: {</span><span class="variable">token</span>.<span class="variable">text</span>} → Verbo: {<span class="variable">token</span>.<span class="variable">head</span>.<span class="variable">text</span>}<span class="string">"</span>)</pre>
+
+     </div>
+
+     <div class="mt-3 flex gap-2 flex-wrap"><span class="px-2 py-1 bg-cyan-900/50 border border-cyan-700 rounded text-[10px] text-cyan-300">NER Customizado</span> <span class="px-2 py-1 bg-cyan-900/50 border border-cyan-700 rounded text-[10px] text-cyan-300">Pipeline Industrial</span> <span class="px-2 py-1 bg-cyan-900/50 border border-cyan-700 rounded text-[10px] text-cyan-300">Matcher</span>
+
+     </div>
+
+    </div><!-- SLIDE 8: Dialogflow -->
+
+    <div class="slide flex-col h-full p-6" data-slide="8">
+
+     <div class="flex items-center gap-3 mb-4">
+
+      <div class="px-3 py-1 bg-yellow-600 rounded text-xs font-bold">
+
+       ETAPA 8
+
+      </div>
+
+      <h2 class="text-xl font-black">Dialogflow — Chatbot de Qualidade</h2>
+
+     </div>
+
+     <p class="text-gray-400 text-sm mb-4">Chatbot para operadores da linha consultarem status de lotes, histórico de defeitos e receberem alertas por voz ou texto, sem precisar acessar sistemas complexos.</p>
+
+     <div class="flex-1 bg-gray-900 rounded-xl border border-gray-800 p-4 overflow-y-auto">
+
+      <pre class="code-block text-gray-300"><span class="comment"># ============================================================</span>
+
+<span class="comment"># ETAPA 8: CHATBOT INDUSTRIAL COM DIALOGFLOW</span>
+
+<span class="comment"># Objetivo: Interface conversacional para operadores consultarem</span>
+
+<span class="comment"># o sistema de qualidade via texto ou voz.</span>
+
+<span class="comment"># ============================================================</span>
+
+
+
+<span class="comment"># --- CONFIGURAÇÃO NO CONSOLE DIALOGFLOW (JSON de Intent) ---</span>
+
+
+
+<span class="comment"># Intent: "consultar_lote"</span>
+
+<span class="comment"># Frases de treinamento que o operador pode dizer:</span>
+
+<span class="comment">#   - "Qual o status do lote 4523?"</span>
+
+<span class="comment">#   - "Esse lote passou na inspeção?"</span>
+
+<span class="comment">#   - "Mostra os defeitos do lote 7891"</span>
+
+
+
+<span class="variable">intent_config</span> = {
+
+    <span class="string">"displayName"</span>: <span class="string">"consultar_lote"</span>,
+
+    <span class="string">"trainingPhrases"</span>: [
+
+        <span class="string">"Qual o status do lote @lote_id?"</span>,
+
+        <span class="string">"O lote @lote_id tem defeitos?"</span>,
+
+        <span class="string">"Mostra resultado da inspeção do lote @lote_id"</span>
+
+    ],
+
+    <span class="string">"parameters"</span>: [{
+
+        <span class="string">"displayName"</span>: <span class="string">"lote_id"</span>,
+
+        <span class="string">"entityType"</span>: <span class="string">"@sys.number"</span>,  <span class="comment"># Dialogflow extrai o número automaticamente</span>
+
+        <span class="string">"mandatory"</span>: <span class="number">True</span>
+
+    }]
+
+}
+
+
+
+<span class="comment"># --- WEBHOOK (Fulfillment) — Código Python no servidor ---</span>
+
+
+
+<span class="keyword">from</span> <span class="variable">flask</span> <span class="keyword">import</span> <span class="function">Flask</span>, <span class="function">request</span>, <span class="function">jsonify</span>
+
+
+
+<span class="variable">app</span> = <span class="function">Flask</span>(<span class="variable">__name__</span>)
+
+
+
+<span class="decorator">@app.route</span>(<span class="string">"/webhook"</span>, <span class="variable">methods</span>=[<span class="string">"POST"</span>])
+
+<span class="keyword">def</span> <span class="function">webhook_dialogflow</span>():
+
+    <span class="comment"># 1. Receber requisição do Dialogflow</span>
+
+    <span class="variable">req</span> = <span class="variable">request</span>.<span class="function">get_json</span>()
+
+    <span class="variable">intent</span> = <span class="variable">req</span>[<span class="string">"queryResult"</span>][<span class="string">"intent"</span>][<span class="string">"displayName"</span>]
+
+    <span class="variable">lote_id</span> = <span class="variable">req</span>[<span class="string">"queryResult"</span>][<span class="string">"parameters"</span>][<span class="string">"lote_id"</span>]
+
+
+
+    <span class="comment"># 2. Consultar banco de dados de inspeções</span>
+
+    <span class="variable">resultado</span> = <span class="function">consultar_banco</span>(<span class="variable">lote_id</span>)
+
+
+
+    <span class="comment"># 3. Formatar resposta para o operador</span>
+
+    <span class="keyword">if</span> <span class="variable">resultado</span>[<span class="string">"defeitos"</span>] &gt; <span class="number">0</span>:
+
+        <span class="variable">resposta</span> = (<span class="string">f"⚠️ Lote {lote_id}: {resultado['defeitos']} peças "</span>
+
+                   <span class="string">f"rejeitadas. Tipo principal: {resultado['tipo']}. "</span>
+
+                   <span class="string">f"Equipamento suspeito: {resultado['equipamento']}."</span>)
+
+    <span class="keyword">else</span>:
+
+        <span class="variable">resposta</span> = <span class="string">f"✅ Lote {lote_id}: todas as peças aprovadas."</span>
+
+
+
+    <span class="keyword">return</span> <span class="function">jsonify</span>({<span class="string">"fulfillmentText"</span>: <span class="variable">resposta</span>})</pre>
+
+     </div>
+
+     <div class="mt-3 flex gap-2 flex-wrap"><span class="px-2 py-1 bg-yellow-900/50 border border-yellow-700 rounded text-[10px] text-yellow-300">NLU</span> <span class="px-2 py-1 bg-yellow-900/50 border border-yellow-700 rounded text-[10px] text-yellow-300">Intents</span> <span class="px-2 py-1 bg-yellow-900/50 border border-yellow-700 rounded text-[10px] text-yellow-300">Webhook</span>
+
+     </div>
+
+    </div><!-- SLIDE 9: STT -->
+
+    <div class="slide flex-col h-full p-6" data-slide="9">
+
+     <div class="flex items-center gap-3 mb-4">
+
+      <div class="px-3 py-1 bg-pink-600 rounded text-xs font-bold">
+
+       ETAPA 9
+
+      </div>
+
+      <h2 class="text-xl font-black">STT (Speech-to-Text) — Comando por Voz</h2>
+
+     </div>
+
+     <p class="text-gray-400 text-sm mb-4">Operadores com as mãos ocupadas na linha podem ditar relatórios e consultar o chatbot por voz. O STT converte fala em texto para alimentar o Dialogflow e o sistema de relatórios.</p>
+
+     <div class="flex-1 bg-gray-900 rounded-xl border border-gray-800 p-4 overflow-y-auto">
+
+      <pre class="code-block text-gray-300"><span class="comment"># ============================================================</span>
+
+<span class="comment"># ETAPA 9: RECONHECIMENTO DE VOZ (SPEECH-TO-TEXT)</span>
+
+<span class="comment"># Objetivo: Permitir que operadores ditem relatórios e</span>
+
+<span class="comment"># consultem o sistema por voz durante o trabalho manual.</span>
+
+<span class="comment"># ============================================================</span>
+
+
+
+<span class="keyword">from</span> <span class="variable">google.cloud</span> <span class="keyword">import</span> <span class="variable">speech_v1</span> <span class="keyword">as</span> <span class="variable">speech</span>
+
+<span class="keyword">import</span> <span class="variable">pyaudio</span>
+
+<span class="keyword">import</span> <span class="variable">queue</span>
+
+
+
+<span class="comment"># 1. Configurar cliente Google Cloud Speech-to-Text</span>
+
+<span class="variable">client</span> = <span class="variable">speech</span>.<span class="function">SpeechClient</span>()
+
+
+
+<span class="comment"># 2. Configuração de reconhecimento para português brasileiro</span>
+
+<span class="variable">config</span> = <span class="variable">speech</span>.<span class="function">RecognitionConfig</span>(
+
+    <span class="variable">encoding</span>=<span class="variable">speech</span>.<span class="variable">RecognitionConfig</span>.<span class="variable">AudioEncoding</span>.<span class="variable">LINEAR16</span>,
+
+    <span class="variable">sample_rate_hertz</span>=<span class="number">16000</span>,
+
+    <span class="variable">language_code</span>=<span class="string">"pt-BR"</span>,           <span class="comment"># Português do Brasil</span>
+
+    <span class="variable">enable_automatic_punctuation</span>=<span class="number">True</span>,
+
+    <span class="comment"># Vocabulário customizado: termos da fábrica que o modelo</span>
+
+    <span class="comment"># pode não conhecer (aumenta precisão de transcrição)</span>
+
+    <span class="variable">speech_contexts</span>=[<span class="variable">speech</span>.<span class="function">SpeechContext</span>(
+
+        <span class="variable">phrases</span>=[<span class="string">"rolamento"</span>, <span class="string">"têmpera"</span>, <span class="string">"rugosidade"</span>,
+
+                 <span class="string">"trinca"</span>, <span class="string">"deformação"</span>, <span class="string">"lote"</span>,
+
+                 <span class="string">"forno"</span>, <span class="string">"prensa"</span>, <span class="string">"vibração"</span>],
+
+        <span class="variable">boost</span>=<span class="number">15.0</span>  <span class="comment"># Prioridade alta para termos industriais</span>
+
+    )]
+
+)
+
+
+
+<span class="comment"># 3. Streaming: reconhecimento em tempo real (microfone contínuo)</span>
+
+<span class="variable">streaming_config</span> = <span class="variable">speech</span>.<span class="function">StreamingRecognitionConfig</span>(
+
+    <span class="variable">config</span>=<span class="variable">config</span>,
+
+    <span class="variable">interim_results</span>=<span class="number">True</span>  <span class="comment"># Mostra transcrição parcial enquanto fala</span>
+
+)
+
+
+
+<span class="comment"># 4. Processar resposta do STT</span>
+
+<span class="keyword">def</span> <span class="function">processar_transcricao</span>(<span class="variable">responses</span>):
+
+    <span class="keyword">for</span> <span class="variable">response</span> <span class="keyword">in</span> <span class="variable">responses</span>:
+
+        <span class="keyword">for</span> <span class="variable">result</span> <span class="keyword">in</span> <span class="variable">response</span>.<span class="variable">results</span>:
+
+            <span class="keyword">if</span> <span class="variable">result</span>.<span class="variable">is_final</span>:
+
+                <span class="variable">texto</span> = <span class="variable">result</span>.<span class="variable">alternatives</span>[<span class="number">0</span>].<span class="variable">transcript</span>
+
+                <span class="variable">confianca</span> = <span class="variable">result</span>.<span class="variable">alternatives</span>[<span class="number">0</span>].<span class="variable">confidence</span>
+
+                <span class="function">print</span>(<span class="string">f"Transcrição: {</span><span class="variable">texto</span>}<span class="string">"</span>)
+
+                <span class="function">print</span>(<span class="string">f"Confiança: {</span><span class="variable">confianca</span>:<span class="number">.1%</span>}<span class="string">"</span>)
+
+
+
+                <span class="comment"># 5. Enviar texto transcrito para o Dialogflow (chatbot)</span>
+
+                <span class="function">enviar_para_dialogflow</span>(<span class="variable">texto</span>)
+
+
+
+<span class="comment"># Exemplo de uso na prática:</span>
+
+<span class="comment"># Operador fala: "Qual o status do lote quatro cinco dois três?"</span>
+
+<span class="comment"># STT transcreve: "Qual o status do lote 4523?"</span>
+
+<span class="comment"># Dialogflow processa e responde com dados do banco</span></pre>
+
+     </div>
+
+     <div class="mt-3 flex gap-2 flex-wrap"><span class="px-2 py-1 bg-pink-900/50 border border-pink-700 rounded text-[10px] text-pink-300">Streaming</span> <span class="px-2 py-1 bg-pink-900/50 border border-pink-700 rounded text-[10px] text-pink-300">Vocabulário Custom</span> <span class="px-2 py-1 bg-pink-900/50 border border-pink-700 rounded text-[10px] text-pink-300">Mãos-livres</span>
+
+     </div>
+
+    </div><!-- SLIDE 10: Arquitetura Final -->
+
+    <div class="slide flex-col h-full p-6" data-slide="10">
+
+     <div class="flex items-center gap-3 mb-4">
+
+      <div class="px-3 py-1 bg-amber-500 text-gray-950 rounded text-xs font-bold">
+
+       FINAL
+
+      </div>
+
+      <h2 class="text-xl font-black">Arquitetura Integrada — Visão Geral</h2>
+
+     </div>
+
+     <p class="text-gray-400 text-sm mb-4">Como todas as tecnologias se conectam no pipeline completo de inspeção inteligente da Aço Forte S.A.</p>
+
+     <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-3 overflow-y-auto"><!-- Pipeline Visual -->
+
+      <div class="bg-gray-900 rounded-xl border border-gray-800 p-4">
+
+       <h3 class="text-sm font-bold text-amber-400 mb-3">Pipeline de Dados</h3>
+
+       <div class="space-y-2 text-xs">
+
+        <div class="flex items-center gap-2 bg-gray-800 p-2 rounded">
+
+         <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center text-[9px] font-bold">
+
+          1
+
+         </div><span><strong>Sensores</strong> → diâmetro, espessura, temp, vibração, rugosidade</span>
+
+        </div>
+
+        <div class="flex items-center gap-2 bg-gray-800 p-2 rounded">
+
+         <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center text-[9px] font-bold">
+
+          2
+
+         </div><span><strong>Scikit-learn</strong> → Random Forest classifica dados numéricos</span>
+
+        </div>
+
+        <div class="flex items-center gap-2 bg-gray-800 p-2 rounded">
+
+         <div class="w-6 h-6 bg-orange-600 rounded flex items-center justify-center text-[9px] font-bold">
+
+          3
+
+         </div><span><strong>Keras/TF</strong> → Rede neural para padrões não-lineares complexos</span>
+
+        </div>
+
+        <div class="flex items-center gap-2 bg-gray-800 p-2 rounded">
+
+         <div class="w-6 h-6 bg-green-600 rounded flex items-center justify-center text-[9px] font-bold">
+
+          4
+
+         </div><span><strong>OpenCV</strong> → Processamento de imagem (bordas, contornos)</span>
+
+        </div>
+
+        <div class="flex items-center gap-2 bg-gray-800 p-2 rounded">
+
+         <div class="w-6 h-6 bg-purple-600 rounded flex items-center justify-center text-[9px] font-bold">
+
+          5
+
+         </div><span><strong>YOLO</strong> → Detecção e classificação visual em tempo real</span>
+
+        </div>
+
+        <div class="flex items-center gap-2 bg-gray-800 p-2 rounded">
+
+         <div class="w-6 h-6 bg-teal-600 rounded flex items-center justify-center text-[9px] font-bold">
+
+          6
+
+         </div><span><strong>NLTK</strong> → Análise textual de relatórios manuais</span>
+
+        </div>
+
+        <div class="flex items-center gap-2 bg-gray-800 p-2 rounded">
+
+         <div class="w-6 h-6 bg-cyan-600 rounded flex items-center justify-center text-[9px] font-bold">
+
+          7
+
+         </div><span><strong>spaCy</strong> → Extração de entidades em escala industrial</span>
+
+        </div>
+
+        <div class="flex items-center gap-2 bg-gray-800 p-2 rounded">
+
+         <div class="w-6 h-6 bg-yellow-600 rounded flex items-center justify-center text-[9px] font-bold">
+
+          8
+
+         </div><span><strong>Dialogflow</strong> → Chatbot para consultas dos operadores</span>
+
+        </div>
+
+        <div class="flex items-center gap-2 bg-gray-800 p-2 rounded">
+
+         <div class="w-6 h-6 bg-pink-600 rounded flex items-center justify-center text-[9px] font-bold">
+
+          9
+
+         </div><span><strong>STT</strong> → Entrada por voz (mãos livres na linha)</span>
+
+        </div>
+
+       </div>
+
+      </div><!-- Resultados -->
+
+      <div class="space-y-3">
+
+       <div class="bg-gray-900 rounded-xl border border-gray-800 p-4">
+
+        <h3 class="text-sm font-bold text-green-400 mb-3">Resultados Esperados</h3>
+
+        <div class="space-y-2 text-xs text-gray-300">
+
+         <div class="flex justify-between items-center"><span>Taxa de defeito entregue</span>
+
+          <div class="flex items-center gap-2"><span class="text-red-400 line-through">3,2%</span> <span class="text-green-400 font-bold">→ 0,3%</span>
+
+          </div>
+
+         </div>
+
+         <div class="flex justify-between items-center"><span>Cobertura de inspeção</span>
+
+          <div class="flex items-center gap-2"><span class="text-red-400 line-through">~5%</span> <span class="text-green-400 font-bold">→ 100%</span>
+
+          </div>
+
+         </div>
+
+         <div class="flex justify-between items-center"><span>Tempo por inspeção</span>
+
+          <div class="flex items-center gap-2"><span class="text-red-400 line-through">45s</span> <span class="text-green-400 font-bold">→ 8ms</span>
+
+          </div>
+
+         </div>
+
+         <div class="flex justify-between items-center"><span>Multas evitadas/ano</span> <span class="text-green-400 font-bold">~R$ 1,1M</span>
+
+         </div>
+
+        </div>
+
+       </div>
+
+       <div class="bg-gray-900 rounded-xl border border-amber-800 p-4">
+
+        <h3 class="text-sm font-bold text-amber-400 mb-3">Decisão Final (Ensemble)</h3>
+
+        <pre class="code-block text-gray-300 text-[10px]"><span class="comment"># Combinar predições de múltiplos modelos</span>
+
+<span class="variable">score_ml</span> = <span class="variable">modelo_sklearn</span>.<span class="function">predict_proba</span>(<span class="variable">X</span>)[<span class="number">0</span>][<span class="number">1</span>]
+
+<span class="variable">score_dl</span> = <span class="variable">modelo_keras</span>.<span class="function">predict</span>(<span class="variable">X</span>)[<span class="number">0</span>][<span class="number">0</span>]
+
+<span class="variable">score_visual</span> = <span class="number">1.0</span> <span class="keyword">if</span> <span class="variable">tem_defeito_yolo</span> <span class="keyword">else</span> <span class="number">0.0</span>
+
+
+
+<span class="comment"># Média ponderada: visual tem peso maior</span>
+
+<span class="variable">score_final</span> = (
+
+    <span class="number">0.3</span> * <span class="variable">score_ml</span> +
+
+    <span class="number">0.3</span> * <span class="variable">score_dl</span> +
+
+    <span class="number">0.4</span> * <span class="variable">score_visual</span>
+
+)
+
+
+
+<span class="comment"># Limiar conservador: na dúvida, rejeitar</span>
+
+<span class="variable">decisao</span> = <span class="string">"REJEITAR"</span> <span class="keyword">if</span> <span class="variable">score_final</span> &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="string">"APROVAR"</span></pre>
+
+       </div>
+
+      </div>
+
+     </div>
+
+    </div>
+
+   </main><!-- Navigation -->
+
+   <footer class="flex items-center justify-between px-6 py-3 border-t border-gray-800 bg-gray-950/80"><button id="btn-prev" class="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm transition-colors disabled:opacity-30 disabled:cursor-not-allowed"> <i data-lucide="chevron-left" class="w-4 h-4"></i> Anterior </button>
+
+    <div id="progress-dots" class="flex items-center gap-1.5"></div><button id="btn-next" class="flex items-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-500 rounded-lg text-sm font-bold text-gray-950 transition-colors"> Próximo <i data-lucide="chevron-right" class="w-4 h-4"></i> </button>
+
+   </footer>
+
+  </div>
+
+  <script>
+
+    // Slide navigation
+
+    const slides = document.querySelectorAll('.slide');
+
+    const totalSlides = slides.length;
+
+    let current = 0;
+
+
+
+    const counter = document.getElementById('slide-counter');
+
+    const btnPrev = document.getElementById('btn-prev');
+
+    const btnNext = document.getElementById('btn-next');
+
+    const dotsContainer = document.getElementById('progress-dots');
+
+
+
+    // Create dots
+
+    for (let i = 0; i < totalSlides; i++) {
+
+      const dot = document.createElement('div');
+
+      dot.className = 'progress-dot' + (i === 0 ? ' active' : '');
+
+      dot.addEventListener('click', () => goTo(i));
+
+      dotsContainer.appendChild(dot);
+
+    }
+
+
+
+    function goTo(index) {
+
+      slides[current].classList.remove('active');
+
+      current = Math.max(0, Math.min(totalSlides - 1, index));
+
+      slides[current].classList.add('active');
+
+      counter.textContent = `${current + 1} / ${totalSlides}`;
+
+      btnPrev.disabled = current === 0;
+
+
+
+      const dots = dotsContainer.children;
+
+      for (let i = 0; i < dots.length; i++) {
+
+        dots[i].classList.toggle('active', i === current);
+
+      }
+
+    }
+
+
+
+    btnPrev.addEventListener('click', () => goTo(current - 1));
+
+    btnNext.addEventListener('click', () => goTo(current + 1));
+
+
+
+    document.addEventListener('keydown', (e) => {
+
+      if (e.key === 'ArrowRight' || e.key === ' ') goTo(current + 1);
+
+      if (e.key === 'ArrowLeft') goTo(current - 1);
+
+    });
+
+
+
+    // Element SDK
+
+    const defaultConfig = {
+
+      main_title: 'Engenharia de IA — Aço Forte S.A.',
+
+      background_color: '#030712',
+
+      surface_color: '#111827',
+
+      text_color: '#f9fafb',
+
+      primary_action: '#d97706',
+
+      secondary_action: '#6b7280'
+
+    };
+
+
+
+    window.elementSdk.init({
+
+      defaultConfig,
+
+      onConfigChange: async (config) => {
+
+        const title = document.getElementById('main-title');
+
+        title.textContent = config.main_title || defaultConfig.main_title;
+
+
+
+        document.body.style.backgroundColor = config.background_color || defaultConfig.background_color;
+
+        document.body.style.color = config.text_color || defaultConfig.text_color;
+
+      },
+
+      mapToCapabilities: (config) => ({
+
+        recolorables: [
+
+          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+
+          { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+
+          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+
+          { get: () => config.primary_action || defaultConfig.primary_action, set: (v) => { config.primary_action = v; window.elementSdk.setConfig({ primary_action: v }); } },
+
+          { get: () => config.secondary_action || defaultConfig.secondary_action, set: (v) => { config.secondary_action = v; window.elementSdk.setConfig({ secondary_action: v }); } }
+
+        ],
+
+        borderables: [],
+
+        fontEditable: {
+
+          get: () => config.font_family || 'Outfit',
+
+          set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+
+        },
+
+        fontSizeable: undefined
+
+      }),
+
+      mapToEditPanelValues: (config) => new Map([
+
+        ["main_title", config.main_title || defaultConfig.main_title]
+
+      ])
+
+    });
+
+
+
+    lucide.createIcons();
+
+  </script>
+
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a04bd25c4c41df36',t:'MTc4MDI5MTc3Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+</html>
