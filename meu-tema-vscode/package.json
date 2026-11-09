@@ -1,0 +1,22 @@
+{
+  "name": "meu-tema",
+  "displayName": "Meu Tema",
+  "description": "Tema escuro personalizado para Visual Studio Code, convertido do JSONC original.",
+  "version": "1.0.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Meu Tema",
+        "uiTheme": "vs-dark",
+        "path": "./themes/meu-tema-color-theme.json"
+      }
+    ]
+  }
+}
