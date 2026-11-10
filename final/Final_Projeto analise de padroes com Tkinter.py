@@ -100,7 +100,7 @@ def treinar_modelo():
 
     optimizer = tf.optimizers.Adam(learning_rate=0.01)
     historico_perda = []
-    epocas = 50
+    epocas = 500
 
     for epoch in range(epocas):
         with tf.GradientTape() as tape:
